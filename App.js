@@ -1,55 +1,20 @@
-import React, {useState} from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Button
-} from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './src/screens/HomeScreen';
+import CounterScreen from './src/screens/CounterScreen';
 
-const App = () => {
-  const [count,setCount] = useState(0);
+const Stack = createStackNavigator();
 
-
-  onIncrease = () => {
-    setCount(count+1);
-  }
-
-  onDecrease = () => {
-    if(count>0){
-      setCount(count-1);
-    }
-  }
-
+function App() {
   return (
-    <View style={styles.container}>
-      <View style={styles.marginElement}>
-        <Button
-        title="Increase" 
-        testID="increaseBtn"
-        onPress={onIncrease} 
-        />
-      </View>
-      <View style={styles.marginElement}>
-        <Button
-        testID="decreaseBtn"
-        title="Decrease"
-        onPress={onDecrease} 
-        />
-      </View>
-      <Text
-      testID="countText" style={styles.marginElement}>{count}</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Counter" component={CounterScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center"
-  },
-  marginElement: {
-    marginVertical: 10
-  }
-});
+}
 
 export default App;

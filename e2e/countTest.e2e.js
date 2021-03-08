@@ -1,10 +1,11 @@
-describe('Example', () => {
+describe('Counter screen test', () => {
     beforeAll(async () => {
       await device.launchApp();
     });
   
     beforeEach(async () => {
       await device.reloadReactNative();
+      await element(by.id('counterBtn')).tap();
     });
   
     it('Button Increase should be visible', async () => {
