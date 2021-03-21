@@ -47,4 +47,4 @@ describe('Counter screen test', () => {
         await element(by.id('increaseBtn')).tap();
         await expect(element(by.id('countText'))).toHaveText("2")
     });
-  });
+});

@@ -1,14 +1,9 @@
-/**
- * @format
- */
+import {incrementFunc} from '../helper';
 
-import 'react-native';
-import React from 'react';
-import App from '../App';
-
-// Note: test renderer must be required after react-native.
-import renderer from 'react-test-renderer';
-
-it('renders correctly', () => {
-  renderer.create(<App />);
-});
+describe("increment function test", () => {
+    it("increment 1 should be 2", () => {
+        let num = 1;
+        let res = incrementFunc(num);
+        expect(res).toEqual(2)
+    })
+})
