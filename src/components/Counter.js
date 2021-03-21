@@ -16,6 +16,9 @@ class Counter extends React.Component{
     novayaFunc = () => {
       
     }
+    secondFunc = () => {
+      
+    }
     onIncrease = () => {
         this.props.store.inCreaseCount();
     }
